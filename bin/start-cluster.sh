@@ -8,7 +8,7 @@ fi
 
 DOCKER_RIAK_CLUSTER_SIZE=${DOCKER_RIAK_CLUSTER_SIZE:-5}
 
-if docker ps | grep "hectcastro/riak" >/dev/null; then
+if docker ps | grep "hectcastro/riak20" >/dev/null; then
   echo ""
   echo "It looks like you already have some containers running."
   echo "Please take them down before attempting to bring up another"
@@ -30,11 +30,11 @@ do
     docker run -e "DOCKER_RIAK_CLUSTER_SIZE=${DOCKER_RIAK_CLUSTER_SIZE}" \
                -e "DOCKER_RIAK_AUTOMATIC_CLUSTERING=${DOCKER_RIAK_AUTOMATIC_CLUSTERING}" \
                -P --name "riak${index}" --link "riak01:seed" \
-               -d hectcastro/riak > /dev/null 2>&1
+               -d hectcastro/riak20 > /dev/null 2>&1
   else
     docker run -e "DOCKER_RIAK_CLUSTER_SIZE=${DOCKER_RIAK_CLUSTER_SIZE}" \
                -e "DOCKER_RIAK_AUTOMATIC_CLUSTERING=${DOCKER_RIAK_AUTOMATIC_CLUSTERING}" \
-               -P --name "riak${index}" -d hectcastro/riak > /dev/null 2>&1
+               -P --name "riak${index}" -d hectcastro/riak20 > /dev/null 2>&1
   fi
 
   CONTAINER_ID=$(docker ps | egrep "riak${index}[^/]" | cut -d" " -f1)
