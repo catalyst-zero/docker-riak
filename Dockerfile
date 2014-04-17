@@ -7,7 +7,7 @@ MAINTAINER Hector Castro hector@basho.com
 
 # Environmental variables
 ENV DEBIAN_FRONTEND noninteractive
-ENV RIAK_VERSION 2.0.0pre20
+ENV RIAK_VERSION 2.0.0beta1
 ENV RIAK_SHORT_VERSION 2.0
 
 # Install Java 7
