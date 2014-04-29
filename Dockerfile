@@ -20,6 +20,7 @@ ADD bin/riak.sh /etc/service/riak/run
 
 # Setup automatic clustering
 ADD bin/automatic_clustering.sh /etc/my_init.d/99_automatic_clustering.sh
+ADD bin/etcd_backed_clustering.sh /etc/my_init.d/99_etcd_backed_clustering.sh
 
 # Tune Riak configuration settings for the container
 RUN sed -i.bak 's/127.0.0.1/0.0.0.0/' /etc/riak/app.config && \
